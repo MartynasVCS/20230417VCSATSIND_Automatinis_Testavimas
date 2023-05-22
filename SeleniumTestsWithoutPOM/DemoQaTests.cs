@@ -202,10 +202,10 @@ namespace SeleniumTestsWithoutPOM
             string id = "visibleAfter";
 
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.Id(id)));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.Id(id))); // Expected conditions klasę naudoti paprasčiau, bet ji ribotų galimybių
 
-            //bool elementDisplayed = wait.Until(d => d.FindElement(By.Id(id)).Displayed);
-            //Assert.IsTrue(elementDisplayed);
+            bool elementDisplayed = wait.Until(d => d.FindElement(By.Id(id)).Displayed);
+            Assert.IsTrue(elementDisplayed);
 
             driver.Quit();
         }
